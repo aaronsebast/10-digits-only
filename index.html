@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digit Limit Popup</title>
+     <h1>Enter 10 digits only</h1>
+    <script>
+        function validateInput(event) {
+            const input = event.target.value;
+            const isValid = /^[0-9]{0,10}$/.test(input);
+
+            if (!isValid) {
+                alert('Only up to 10 digits are allowed.');
+                event.target.value = input.slice(0, 10); // This will trim the extra digits
+            }
+        }
+    </script>
+</head>
+<body>
+    <label for="digitInput">Enter up to 10 digits:</label>
+    <input type="text" id="digitInput" oninput="validateInput(event)">
+</body>
+</html>
